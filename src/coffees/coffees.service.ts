@@ -16,7 +16,7 @@ export class CoffeesService {
     return this.coffees;
   }
 
-  findOne(id: string): Coffee {
+  findOne(id: number): Coffee {
     const coffee = this.coffees.find((item) => item.id === +id);
     if (!coffee) {
       throw new NotFoundException(`Coffee #${id} not found`);
@@ -29,7 +29,7 @@ export class CoffeesService {
     return createCoffeeDto;
   }
 
-  update(id: string, updateCoffeeDto: any) {
+  update(id: number, updateCoffeeDto: any) {
     const existingCoffee = this.findOne(id);
     if (existingCoffee) {
       // update the existing entity

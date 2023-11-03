@@ -23,7 +23,7 @@ export class CoffeesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Coffee {
+  findOne(@Param('id') id: number): Coffee {
     return this.coffeesService.findOne(id);
   }
 
@@ -33,7 +33,7 @@ export class CoffeesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCoffeeDto: UpdateCoffeeDto): void {
+  update(@Param('id') id: number, @Body() updateCoffeeDto: UpdateCoffeeDto): void {
     return this.coffeesService.update(id, updateCoffeeDto);
   }
 
