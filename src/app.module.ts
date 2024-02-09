@@ -6,7 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
 import { ConfigModule } from '@nestjs/config';
 import * as process from 'process';
-import * as Joi from 'joi';
+import Joi from 'joi';
 
 @Module({
   imports: [
