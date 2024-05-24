@@ -15,12 +15,14 @@ import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
 import { Public } from '../common/decorators/public.decorator';
 import { ParseIntPipe } from '../common/pipes/parse-int/parse-int.pipe';
 import { Protocol } from '../common/decorators/protocol.decorator';
+import { ApiForbiddenResponse } from '@nestjs/swagger';
 
 @Controller('coffees')
 export class CoffeesController {
   constructor(private readonly coffeesService: CoffeesService) {}
-  @Get()
+  @ApiForbiddenResponse({ description: 'Forbidden.' })
   @Public()
+  @Get()
   findAll(
     @Protocol('https') protocol: string,
     @Query() paginationQuery: PaginationQueryDto,
